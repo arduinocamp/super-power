@@ -1,0 +1,24 @@
+Este proyecto consistió en equipar un pequeño tractor motorizado, "superpower", a Internet.  
+Se instala un servidor web en una dirección IP fija. Aquí hay:
+- Un servidor lighttpd
+- Unas pocas páginas web (una, de hecho)
+- Dos scripts python, uno para leer y otro para escribir
+- Una base de datos SQLite extremadamente simple
+
+En http://www.cuartielles.com/hackathon/superpower/ hay:
+- Varias imágenes del proyecto
+- Diseño fritzing
+- Un video del proyecto andando
+
+La configuración del servidor web está en el directorio /unix, que "hace" de raiz
+Se instaló en Ubuntu, siempre de la manera standard de los paquetes (lighttpd, sqlite, sqlitebrowser) Sólo se añadieron los ficheros que están en los directorios. 
+Permisos: los scripts tienen que ser ejecutables por all. El directorio cgi-bin y el fichero de la base de datos tienen que ser escribible por all (para poder leer/escribir en la base). 
+
+Instrucciones:
+Si se va a la página web http://servidor/superpower.html se ven enlaces: adelante, izquierda, derecha, mover pala.
+Al pinchar en uno de ellos el tractor realiza la acción solicitada.
+
+Funcionamiento:
+Al invocar los enlaces el script write.py escribe un dato en la base de datos.
+El tractor pide continuamente supoerpower.py, que consulta la base. Si existe una orden en ella la imprime por la web y la borra.
+El tractor recoge la orden, la interpreta y la ejecuta.
